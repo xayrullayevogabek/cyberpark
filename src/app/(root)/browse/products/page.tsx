@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import ProductCard from "@/components/ProductCard";
 import CustomPagination from "@/components/CustomPagination";
+import { Input } from "@/components/ui/input";
 
 const Products = () => {
   const [order, setOrder] = useState("");
@@ -35,7 +36,7 @@ const Products = () => {
   return (
     <div className=" flex flex-col gap-8 py-10">
       <header className=" flex items-center justify-between">
-        <div>
+        <div className=" flex items-center gap-10">
           <h1 className=" text-3xl font-semibold">Products</h1>
         </div>
         <Select defaultValue={order} onValueChange={(value) => setOrder(value)}>
@@ -61,7 +62,7 @@ const Products = () => {
               ></div>
             ))
           : products.products.map((product) => (
-              <ProductCard product={product} />
+              <ProductCard key={product.id} product={product} />
             ))}
       </div>
       <CustomPagination

@@ -9,6 +9,7 @@ interface InitialStateType {
     total: number;
     products: Product[];
   };
+  product: Product;
   loading: boolean;
   error: null | undefined | string;
 }
@@ -20,6 +21,7 @@ const initialState: InitialStateType = {
     limit: 0,
     total: 0,
   },
+  product: {} as Product,
   loading: false,
   error: null,
 };
@@ -30,7 +32,15 @@ export const FetchAllProducts = createAsyncThunk(
   async (params?: ProductFilters) => {
     const response = await axiosClient.get("/products", { params });
 
-    console.log("eww",response)
+    return response.data;
+  }
+);
+
+// Asyncthunk for getting product by id
+export const FetchProductById = createAsyncThunk(
+  "fetchProductById",
+  async (id: number) => {
+    const response = await axiosClient.get(`/products/${id}`);
 
     return response.data;
   }
@@ -50,6 +60,18 @@ const productsSlice = createSlice({
         state.products = action.payload;
       })
       .addCase(FetchAllProducts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(FetchProductById.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(FetchProductById.fulfilled, (state, action) => {
+        state.loading = false;
+        state.product = action.payload;
+      })
+      .addCase(FetchProductById.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });

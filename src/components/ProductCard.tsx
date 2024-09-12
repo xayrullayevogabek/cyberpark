@@ -2,12 +2,19 @@
 import React from "react";
 import Image from "next/image";
 import { Product } from "@/types";
+import Link from "next/link";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
     <div className="rounded-lg border p-6 shadow-sm border-[#191919] bg-[#171717]">
       <div className="h-56 w-full relative">
-        <Image src={product.thumbnail} alt={product.title} fill className=" object-cover"/>
+        <Image
+          src={product.thumbnail}
+          alt={product.title}
+          fill
+          className=" object-cover"
+          sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
       </div>
       <div className="pt-6">
         <div className="mb-4 flex items-center justify-between gap-4">
@@ -17,12 +24,12 @@ const ProductCard = ({ product }: { product: Product }) => {
           </span>
         </div>
 
-        <a
-          href="#"
+        <Link
+          href={`/browse/products/${product.id}`}
           className="text-lg font-semibold leading-tight hover:underline"
         >
           {product.title}
-        </a>
+        </Link>
 
         <div className="mt-2 flex items-center gap-2">
           <div className="flex items-center">
@@ -94,9 +101,9 @@ const ProductCard = ({ product }: { product: Product }) => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M13 7h6l2 4m-8-4v8m0-8V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v9h2m8 0H9m4 0h2m4 0h2v-4m0 0h-5m3.5 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-10 0a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
               />
             </svg>
@@ -115,8 +122,8 @@ const ProductCard = ({ product }: { product: Product }) => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeWidth="2"
                 d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
               />
             </svg>

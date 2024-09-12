@@ -1,5 +1,5 @@
 import axiosClient from "@/lib/axios";
-import { Product, ProductFilters } from "@/types";
+import { Product, Filters } from "@/types";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 interface InitialStateType {
@@ -29,7 +29,7 @@ const initialState: InitialStateType = {
 // Asyncthunk for getting all products
 export const FetchAllProducts = createAsyncThunk(
   "fetchAllProducts",
-  async (params?: ProductFilters) => {
+  async (params?: Filters) => {
     const response = await axiosClient.get("/products", { params });
 
     return response.data;

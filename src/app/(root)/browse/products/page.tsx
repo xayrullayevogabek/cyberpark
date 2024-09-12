@@ -13,6 +13,7 @@ import {
 import ProductCard from "@/components/ProductCard";
 import CustomPagination from "@/components/CustomPagination";
 import { Input } from "@/components/ui/input";
+import OrderSelect from "@/components/OrderSelect";
 
 const Products = () => {
   const [order, setOrder] = useState("");
@@ -39,19 +40,7 @@ const Products = () => {
         <div className=" flex items-center gap-10">
           <h1 className=" text-3xl font-semibold">Products</h1>
         </div>
-        <Select defaultValue={order} onValueChange={(value) => setOrder(value)}>
-          <SelectTrigger className="w-[180px] border border-[#171717]">
-            <SelectValue placeholder="Order products" />
-          </SelectTrigger>
-          <SelectContent className=" bg-[#171717] border-[#171717] text-white">
-            <SelectItem className=" cursor-pointer" value="asc">
-              Asc
-            </SelectItem>
-            <SelectItem className=" cursor-pointer" value="desc">
-              Desc
-            </SelectItem>
-          </SelectContent>
-        </Select>
+        <OrderSelect order={order} setOrder={setOrder} />
       </header>
       <div className=" grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4">
         {loading

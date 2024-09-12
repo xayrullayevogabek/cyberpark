@@ -35,7 +35,7 @@ const Header = () => {
               key={indx}
               href={nav.href}
               className={` p-3 rounded-lg hover:text-slate-400 transition-all duration-200 ${
-                pathname === nav.href && "bg-black"
+                pathname.includes(nav.href) && "bg-black"
               }`}
             >
               {nav.title}
@@ -47,7 +47,7 @@ const Header = () => {
             <AvatarImage src={user?.image} alt={user.firstName} />
             <AvatarFallback>
               {user?.firstName?.slice(0, 1)}
-              {user.lastName.slice(0, 1)}
+              {user?.lastName?.slice(0, 1)}
             </AvatarFallback>
           </Avatar>
           <span className=" cursor-pointer">

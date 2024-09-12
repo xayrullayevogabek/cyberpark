@@ -18,12 +18,22 @@ const ProductDetail = () => {
   useEffect(() => {
     dispatch(FetchProductById(+params.id));
   }, [params]);
+
+  if (loading) {
+    return <div className=" w-full h-96 bg-slate-700 animate-pulse mt-10 rounded-md"></div>;
+  }
+  
   return (
     <section className="py-8 md:py-16 bg-[#171717] antialiased mt-10 rounded-md">
       <div className="max-w-screen-xl px-4 mx-auto 2xl:px-0">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
           <div className=" w-full h-80 relative max-w-md lg:max-w-lg mx-auto">
-            <Image src={product?.thumbnail} alt={product?.title} fill className=" object-contain"/>
+            <Image
+              src={product?.thumbnail}
+              alt={product?.title}
+              fill
+              className=" object-contain"
+            />
           </div>
 
           <div className="mt-6 sm:mt-8 lg:mt-0">

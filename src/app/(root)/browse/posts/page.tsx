@@ -21,7 +21,7 @@ const Posts = () => {
       FetchAllPosts({
         limit: 30,
         skip: (currentPage - 1) * 30,
-        sortBy: order ? "title" : "",
+        sortBy: order ? "views" : "",
         order,
       })
     );

@@ -3,16 +3,8 @@ import React, { useEffect, useState } from "react";
 import { FetchAllProducts } from "@/redux/features/products";
 import { AppDispatch, RootState } from "@/redux/store";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import ProductCard from "@/components/ProductCard";
 import CustomPagination from "@/components/CustomPagination";
-import { Input } from "@/components/ui/input";
 import OrderSelect from "@/components/OrderSelect";
 
 const Products = () => {
@@ -28,7 +20,7 @@ const Products = () => {
       FetchAllProducts({
         limit: 30,
         skip: (currentPage - 1) * 30,
-        sortBy: order ? "title" : "",
+        sortBy: order ? "price" : "",
         order,
       })
     );

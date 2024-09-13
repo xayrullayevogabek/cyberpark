@@ -6,7 +6,7 @@
 
 <h2>🚀 Demo</h2>
 
-[https://cyberpark-three.vercel.app/browse/products](https://cyberpark-three.vercel.app/browse/products)
+[https://cyberpark-three.vercel.app/](https://cyberpark-three.vercel.app/)
 
 <h2>🧐 Features</h2>
 

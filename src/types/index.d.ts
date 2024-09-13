@@ -1,4 +1,5 @@
 export interface Filters {
+  userId?: number;
   limit?: number;
   skip?: number;
   order?: string;
@@ -140,4 +141,12 @@ export interface Comment {
     username: string;
     fullName: string;
   };
+}
+
+// Todo types
+export interface TodoType {
+  id: number;
+  todo: string;
+  completed: boolean;
+  userId: number;
 }

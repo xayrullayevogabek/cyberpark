@@ -28,7 +28,9 @@ const Header = () => {
   return (
     <div className=" w-full py-5 px-2 sm:px-2  md:px-4 lg:px-10 xl:px-28 bg-[#171717]">
       <div className="flex items-center justify-between">
-        <h1 className=" text-xl">Logo</h1>
+        <Link href={"/"} className=" text-xl uppercase">
+          Cyberpark
+        </Link>
         <nav className=" flex items-center">
           {navigations.map((nav, indx) => (
             <Link

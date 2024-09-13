@@ -3,6 +3,7 @@ import LoginUser from "./features/login";
 import products from "./features/products";
 import posts from "./features/posts";
 import postComments from "./features/post-comments";
+import todos from "./features/todo";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     products,
     posts,
     postComments,
+    todos
   },
 });
 

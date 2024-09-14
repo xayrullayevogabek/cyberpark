@@ -64,7 +64,7 @@ const DialogCreateTodo = () => {
         <DialogFooter>
           <Button
             onClick={form.handleSubmit(onSubmit)}
-            className=" bg-black/70 hover:bg-black"
+            className=" bg-black/70 text-white hover:bg-black"
           >
             Save changes
           </Button>

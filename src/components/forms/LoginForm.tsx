@@ -56,7 +56,7 @@ const LoginForm = () => {
           label="Enter your password"
           placeholder="Password"
         />
-        <Button className=" bg-red-700 w-full hover:bg-red-800" type="submit">
+        <Button className=" bg-red-700 w-full hover:bg-red-800 text-white" type="submit">
           Submit
         </Button>
       </form>

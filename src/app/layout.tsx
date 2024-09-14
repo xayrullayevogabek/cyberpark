@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 import ReduxProvider from "@/components/ReduxProvider";
 import { HydrationProvider, Client } from "react-hydration-provider";
 import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,8 +23,10 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <HydrationProvider>
           <Client>
-            <Toaster theme="dark" position="top-right" richColors />
-            <ReduxProvider>{children}</ReduxProvider>
+            <ThemeProvider defaultTheme="dark" attribute="class">
+              <Toaster theme="dark" position="top-right" richColors />
+              <ReduxProvider>{children}</ReduxProvider>
+            </ThemeProvider>
           </Client>
         </HydrationProvider>
       </body>

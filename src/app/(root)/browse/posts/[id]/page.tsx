@@ -17,9 +17,7 @@ const PostDetail = () => {
 
   useEffect(() => {
     dispatch(FetchPostById(+params.id));
-  }, []);
-
-  console.log(post);
+  }, [params]);
 
   if (loading) {
     return (
